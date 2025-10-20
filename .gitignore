@@ -40,3 +40,29 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Build files
+*.log
+*.tgz
+*.gz
+
+# Testing
+/e2e/*.js
+/e2e/*.map
+
+# Package manager lock files (optional - uncomment if you want to ignore)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# Server-side rendering
+.angular/ssr/
+
+# Production
+/build
+*.js.map
