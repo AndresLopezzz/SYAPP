@@ -1,0 +1,49 @@
+<!-- Resumen del Acuerdo (amarillo) -->
+<div class="resumen-acuerdo">
+  <h3>RESUMEN DEL ACUERDO</h3>
+  <div class="resumen-content">
+    <p><strong>N° Acuerdo de pago:</strong> {{ resumen.numeroAcuerdo }}</p>
+    <p><strong>Valor total de acuerdo:</strong> {{ formatCurrency(resumen.valorTotal) }}</p>
+    <p><strong>Número de cuotas:</strong> {{ resumen.numeroCuotas }}</p>
+  </div>
+</div>
+
+<!-- Comparendos incluidos en el acuerdo -->
+<div class="comparendos-incluidos">
+  <h3>Comparendos incluidos en el acuerdo</h3>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>N° comparendo</th>
+        <th>Valor A Pagar</th>
+        <th>Valor SIMIT</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Estado vacío: no hay comparendos agregados -->
+      <tr *ngIf="!hasComparendos()">
+        <td colspan="3" class="no-data">
+          <div class="empty-state">
+            <span class="material-icons">warning</span>
+            <p>No se han agregado comparendos al acuerdo</p>
+            <p>Busque y agregue comparendos para continuar</p>
+          </div>
+        </td>
+      </tr>
+
+      <!-- Listado de comparendos -->
+      <tr *ngFor="let comparendo of resumen.comparendos">
+        <td>{{ comparendo.numeroComparendo }}</td>
+        <td>{{ formatCurrency(comparendo.valorPagar) }}</td>
+        <td>{{ formatCurrency(comparendo.valorSimit) }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Footer con totales -->
+  <div class="table-footer" *ngIf="hasComparendos()">
+    <span><strong>Valor total:</strong></span>
+    <span>{{ formatCurrency(getTotalValorPagar()) }}</span>
+    <span>{{ formatCurrency(getTotalValorSimit()) }}</span>
+  </div>
+</div>

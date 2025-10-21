@@ -1,0 +1,111 @@
+<section class="card">
+  <h2>Información del Infractor</h2>
+
+  <div class="form-grid">
+    <div class="form-group field-medium">
+      <label>
+        Número de documento
+        <span class="required">*</span>
+      </label>
+
+      <input
+        type="text"
+        [(ngModel)]="infractor.numeroDocumento"
+        placeholder="Ingrese número de documento"
+        (blur)="markAsTouched('numeroDocumento')"
+        (ngModelChange)="onInputChange()"
+        [class.error]="isTouched('numeroDocumento') && !infractor.numeroDocumento"
+      />
+
+      <small
+        *ngIf="isTouched('numeroDocumento') && !infractor.numeroDocumento"
+        class="error"
+      >
+        Este campo es obligatorio
+      </small>
+    </div>
+
+    <div class="form-group field-large">
+      <label>
+        Ciudad de expedición de Cédula
+        <span class="required">*</span>
+      </label>
+
+      <select
+        [(ngModel)]="infractor.ciudadExpedicion"
+        (blur)="markAsTouched('ciudadExpedicion')"
+        (ngModelChange)="onInputChange()"
+        [class.error]="isTouched('ciudadExpedicion') && !infractor.ciudadExpedicion"
+      >
+        <option value="">Selecciona una ciudad</option>
+        <option value="bogota">Bogotá</option>
+        <option value="medellin">Medellín</option>
+        <option value="cali">Cali</option>
+        <option value="barranquilla">Barranquilla</option>
+        <option value="cartagena">Cartagena</option>
+        <option value="cucuta">Cúcuta</option>
+        <option value="bucaramanga">Bucaramanga</option>
+        <option value="pereira">Pereira</option>
+        <option value="ipiales">Ipiales</option>
+      </select>
+
+      <small
+        *ngIf="isTouched('ciudadExpedicion') && !infractor.ciudadExpedicion"
+        class="error"
+      >
+        Debe seleccionar un item de la lista.
+      </small>
+    </div>
+
+    <div class="form-group field-large">
+      <label>
+        Nombres
+        <span class="required">*</span>
+      </label>
+
+      <input
+        type="text"
+        [(ngModel)]="infractor.nombres"
+        placeholder="Primer y segundo nombre"
+        (blur)="markAsTouched('nombres')"
+        (ngModelChange)="onInputChange()"
+        [class.error]="isTouched('nombres') && !infractor.nombres"
+      />
+
+      <small *ngIf="!isTouched('nombres') || infractor.nombres">
+        Ingrese ambos nombres separados por espacio.
+      </small>
+
+      <small *ngIf="isTouched('nombres') && !infractor.nombres" class="error">
+        Este campo es obligatorio
+      </small>
+    </div>
+
+    <div class="form-group field-large">
+      <label>
+        Apellidos
+        <span class="required">*</span>
+      </label>
+
+      <input
+        type="text"
+        [(ngModel)]="infractor.apellidos"
+        placeholder="Primer y segundo apellido"
+        (blur)="markAsTouched('apellidos')"
+        (ngModelChange)="onInputChange()"
+        [class.error]="isTouched('apellidos') && !infractor.apellidos"
+      />
+
+      <small *ngIf="!isTouched('apellidos') || infractor.apellidos">
+        Ingrese ambos apellidos separados por espacio.
+      </small>
+
+      <small
+        *ngIf="isTouched('apellidos') && !infractor.apellidos"
+        class="error"
+      >
+        Este campo es obligatorio
+      </small>
+    </div>
+  </div>
+</section>

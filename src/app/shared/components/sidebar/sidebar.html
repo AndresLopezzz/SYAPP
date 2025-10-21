@@ -1,0 +1,19 @@
+<aside class="sidebar">
+  <div
+    *ngFor="let item of menuItems"
+    class="sidebar-icon"
+    [class.active]="isActive(item.id)"
+    [title]="item.tooltip"
+    (click)="onMenuItemClick(item.id)"
+  >
+    <span class="material-icons">{{ item.icon }}</span>
+  </div>
+
+  <div
+    class="sidebar-icon logout"
+    title="Cerrar sesión"
+    (click)="onLogoutClick()"
+  >
+    <span class="material-icons">logout</span>
+  </div>
+</aside>

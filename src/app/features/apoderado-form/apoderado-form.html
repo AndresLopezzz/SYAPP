@@ -1,0 +1,141 @@
+<section class="card">
+  <h2>Información del Apoderado</h2>
+
+  <div class="form-grid">
+    <!-- FILA 1: Tipo documento + Número + Ciudad -->
+    <div class="form-group field-medium">
+      <label>Tipo de documento <span class="required">*</span></label>
+      <select
+        [(ngModel)]="apoderado.tipoDocumento"
+        (blur)="markAsTouched('tipoDocumento')"
+        (ngModelChange)="onInputChange()"
+        [class.error]="isTouched('tipoDocumento') && !apoderado.tipoDocumento"
+      >
+        <option value="">Selecciona tipo</option>
+        <option value="cc">Cédula de Ciudadanía</option>
+        <option value="ce">Cédula de Extranjería</option>
+      </select>
+      <small
+        *ngIf="isTouched('tipoDocumento') && !apoderado.tipoDocumento"
+        class="error"
+      >
+        Debe seleccionar un item de la lista.
+      </small>
+    </div>
+
+    <div class="form-group field-medium">
+      <label>Número de documento <span class="required">*</span></label>
+      <input
+        type="text"
+        [(ngModel)]="apoderado.numeroDocumento"
+        placeholder="Ingrese número de documento"
+        (blur)="markAsTouched('numeroDocumento')"
+        (ngModelChange)="onInputChange()"
+        [class.error]="isTouched('numeroDocumento') && !apoderado.numeroDocumento"
+      />
+      <small
+        *ngIf="isTouched('numeroDocumento') && !apoderado.numeroDocumento"
+        class="error"
+      >
+        Este campo es obligatorio
+      </small>
+    </div>
+
+    <div class="form-group field-large">
+      <label>
+        Ciudad de expedición de Cédula
+        <span class="required">*</span>
+      </label>
+      <select
+        [(ngModel)]="apoderado.ciudadExpedicion"
+        (blur)="markAsTouched('ciudadExpedicion')"
+        (ngModelChange)="onInputChange()"
+        [class.error]="isTouched('ciudadExpedicion') && !apoderado.ciudadExpedicion"
+      >
+        <option value="">Selecciona una ciudad</option>
+        <option value="bogota">Bogotá</option>
+        <option value="medellin">Medellín</option>
+        <option value="cali">Cali</option>
+        <option value="barranquilla">Barranquilla</option>
+        <option value="cartagena">Cartagena</option>
+        <option value="cucuta">Cúcuta</option>
+        <option value="bucaramanga">Bucaramanga</option>
+        <option value="pereira">Pereira</option>
+        <option value="ipiales">Ipiales</option>
+      </select>
+      <small
+        *ngIf="isTouched('ciudadExpedicion') && !apoderado.ciudadExpedicion"
+        class="error"
+      >
+        Debe seleccionar un item de la lista.
+      </small>
+    </div>
+
+    <!-- FILA 2: Nombre + Apellidos -->
+    <div class="form-group field-large">
+      <label>Nombre <span class="required">*</span></label>
+      <input
+        type="text"
+        [(ngModel)]="apoderado.nombre"
+        placeholder="Primer y segundo nombre"
+        (blur)="markAsTouched('nombre')"
+        (ngModelChange)="onInputChange()"
+        [class.error]="isTouched('nombre') && !apoderado.nombre"
+      />
+      <small *ngIf="!isTouched('nombre') || apoderado.nombre">
+        Ingrese ambos nombres separados por espacio.
+      </small>
+      <small
+        *ngIf="isTouched('nombre') && !apoderado.nombre"
+        class="error"
+      >
+        Este campo es obligatorio
+      </small>
+    </div>
+
+    <div class="form-group field-large">
+      <label>Apellidos <span class="required">*</span></label>
+      <input
+        type="text"
+        [(ngModel)]="apoderado.apellidos"
+        placeholder="Primer y segundo apellido"
+        (blur)="markAsTouched('apellidos')"
+        (ngModelChange)="onInputChange()"
+        [class.error]="isTouched('apellidos') && !apoderado.apellidos"
+      />
+      <small
+        *ngIf="!isTouched('apellidos') || apoderado.apellidos"
+      >
+        Ingrese ambos apellidos separados por espacio.
+      </small>
+      <small
+        *ngIf="isTouched('apellidos') && !apoderado.apellidos"
+        class="error"
+      >
+        Este campo es obligatorio
+      </small>
+    </div>
+
+    <!-- FILA 3: Fecha + Tarjeta profesional -->
+    <div class="form-group field-medium">
+      <label>Fecha de nacimiento</label>
+      <input
+        type="date"
+        [(ngModel)]="apoderado.fechaNacimiento"
+        placeholder="dd/mm/yyyy"
+        (ngModelChange)="onInputChange()"
+      />
+    </div>
+
+    <div class="form-group field-large">
+      <label>Número de tarjeta profesional</label>
+      <input
+        type="text"
+        [(ngModel)]="apoderado.tarjetaProfesional"
+        placeholder="Ingrese número de tarjeta profesional"
+        (ngModelChange)="onInputChange()"
+      />
+      <small>Solo si aplica (Abogados, contadores, etc.)</small>
+    </div>
+  </div>
+</section>

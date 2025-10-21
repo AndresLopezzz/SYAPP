@@ -1,0 +1,177 @@
+.resumen-acuerdo {
+  background: #fff9db;
+  border: 2px solid #f4d03f;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.resumen-acuerdo h3 {
+  margin: 0 0 15px 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.resumen-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.resumen-content p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+.resumen-content strong {
+  font-weight: 600;
+  color: #222;
+}
+
+.comparendos-incluidos {
+  margin-top: 20px;
+}
+
+.comparendos-incluidos h3 {
+  margin: 0 0 15px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.data-table thead {
+  background: #f8f9fa;
+}
+
+.data-table th {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #555;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.data-table td {
+  padding: 12px 16px;
+  font-size: 0.875rem;
+  color: #333;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.data-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.data-table tbody tr:hover {
+  background: #f8f9fa;
+  transition: background 0.2s ease;
+}
+
+.no-data {
+  text-align: center;
+  padding: 40px 20px !important;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.empty-state .material-icons {
+  font-size: 48px;
+  color: #fbbf24;
+}
+
+.empty-state p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.empty-state p:first-of-type {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.9375rem;
+}
+
+.table-footer {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 16px;
+  padding: 16px;
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-top: 2px solid #333;
+  border-radius: 0 0 8px 8px;
+  margin-top: -8px;
+}
+
+.table-footer span {
+  font-size: 0.875rem;
+  color: #333;
+}
+
+.table-footer span:first-child {
+  text-align: left;
+}
+
+.table-footer span:not(:first-child) {
+  text-align: right;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .resumen-acuerdo {
+    padding: 16px;
+  }
+
+  .data-table {
+    font-size: 0.8125rem;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 10px 12px;
+  }
+
+  .table-footer {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .table-footer span {
+    text-align: left !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .resumen-content {
+    font-size: 0.8125rem;
+  }
+
+  .comparendos-incluidos h3 {
+    font-size: 0.9375rem;
+  }
+
+  .data-table {
+    display: block;
+    overflow-x: auto;
+  }
+}

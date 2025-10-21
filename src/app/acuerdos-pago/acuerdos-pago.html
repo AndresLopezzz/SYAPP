@@ -1,1 +1,182 @@
-<p>acuerdos-pago works!</p>
+<div class="layout">
+  <app-header></app-header>
+
+  <app-sidebar
+    (onMenuClick)="handleSidebarClick($event)"
+    (onLogout)="handleLogout()"
+  >
+  </app-sidebar>
+
+  <main class="main-container">
+    <div class="page-header">
+      <h1>Acuerdos de pago</h1>
+      <span class="timestamp">{{ currentTimestamp }}</span>
+    </div>
+
+    <div class="actions-top">
+      <button class="btn-secondary">← Volver</button>
+      <div class="actions-right">
+        <button class="btn-outline" (click)="limpiarFormulario()">
+          <span class="material-icons">refresh</span>
+          Limpiar formulario
+        </button>
+        <button class="btn-primary" (click)="guardarAcuerdo()">
+          <span class="material-icons">save</span>
+          Guardar
+        </button>
+      </div>
+    </div>
+
+    <app-infractor-form
+      [infractor]="infractor"
+      (onInfractorChange)="handleInfractorChange($event)"
+      (onFieldTouched)="handleInfractorFieldTouched($event)"
+    ></app-infractor-form>
+
+    <div class="checkbox-group" style="margin-top: -10px; margin-bottom: 20px">
+      <input type="checkbox" id="tieneApoderado" [(ngModel)]="tieneApoderado" />
+      <label for="tieneApoderado"
+        >Actúa mediante representante legal o apoderado?</label
+      >
+    </div>
+
+    <app-apoderado-form
+      *ngIf="tieneApoderado"
+      [apoderado]="apoderado"
+      (onApoderadoChange)="handleApoderadoChange($event)"
+      (onFieldTouched)="handleApoderadoFieldTouched($event)"
+    ></app-apoderado-form>
+
+    <app-ubicacion-form
+      [ubicacion]="ubicacion"
+      (onUbicacionChange)="handleUbicacionChange($event)"
+      (onFieldTouched)="handleUbicacionFieldTouched($event)"
+    ></app-ubicacion-form>
+
+    <section class="card">
+      <h2>Documentos Adjuntos</h2>
+      <p class="section-subtitle">
+        Completa los datos de representarte legal o apoderado
+      </p>
+      <div class="upload-grid">
+        <div class="upload-group">
+          <label>Documento Infractor <span class="required">*</span></label>
+          <div class="file-input">
+            <button class="btn-file">Choose File</button>
+            <span>No file chosen</span>
+          </div>
+        </div>
+
+        <div class="upload-group">
+          <label>Documento Apoderado *</label>
+          <div class="file-input">
+            <button class="btn-file">Choose File</button>
+            <span>No file chosen</span>
+          </div>
+        </div>
+
+        <div class="upload-group">
+          <label>Carta de Autorización *</label>
+          <div class="file-input">
+            <button class="btn-file">Choose File</button>
+            <span>No file chosen</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Infracciones de Tránsito Pendientes de Pago</h2>
+      <p class="section-subtitle">
+        Selecciona las infracciones que desee incluir en el acuerdo de pago
+      </p>
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>N° Comparendo</th>
+              <th>Fecha Infracción</th>
+              <th>Placa</th>
+              <th>Código</th>
+              <th>N° Resolución</th>
+              <th>Fecha Resolución</th>
+              <th>Valor</th>
+              <th>Interés Mora</th>
+              <th>Valor Sist.</th>
+              <th>Valor Costas</th>
+              <th>Valor a Cancelar</th>
+              <th>Estado</th>
+            </tr>
+            <tr class="filter-row">
+              <th>
+                <input
+                  type="text"
+                  class="table-filter-input"
+                  placeholder="Buscar..."
+                />
+              </th>
+              <th>
+                <input
+                  type="text"
+                  class="table-filter-input"
+                  placeholder="Buscar..."
+                />
+              </th>
+              <th>
+                <input
+                  type="text"
+                  class="table-filter-input"
+                  placeholder="Buscar..."
+                />
+              </th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="12" class="no-data">
+                <div class="empty-state">
+                  <span class="material-icons">warning</span>
+                  <p>No se encontraron resultados</p>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pagination">0 de 0</div>
+    </section>
+
+    <app-cuotas-config
+      [cuotas]="cuotas"
+      [asignarCuotas]="asignarCuotas"
+      (onCuotasChange)="handleCuotasChange($event)"
+      (onCalcularCuotas)="handleCalcularCuotas()"
+      (onAsignarCuotasChange)="handleAsignarCuotasChange($event)"
+    ></app-cuotas-config>
+
+    <app-resumen-acuerdo [resumen]="resumen"></app-resumen-acuerdo>
+
+    <div class="actions-bottom">
+      <button class="btn-secondary">← Volver</button>
+      <div class="actions-right">
+        <button class="btn-outline" (click)="limpiarFormulario()">
+          <span class="material-icons">refresh</span>
+          Limpiar formulario
+        </button>
+        <button class="btn-primary" (click)="guardarAcuerdo()">
+          <span class="material-icons">save</span>
+          Guardar
+        </button>
+      </div>
+    </div>
+  </main>
+</div>

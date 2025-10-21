@@ -1,0 +1,94 @@
+<section class="card">
+  <h2>Datos de Ubicación persona acuerdo</h2>
+
+  <div class="form-grid">
+    <!-- FILA 1: Ciudad + Dirección -->
+    <div class="form-group field-large">
+      <label>Ciudad de residencia <span class="required">*</span></label>
+      <select
+        [(ngModel)]="ubicacion.ciudad"
+        (blur)="markAsTouched('ciudad')"
+        (ngModelChange)="onInputChange()"
+        [class.error]="isTouched('ciudad') && !ubicacion.ciudad"
+      >
+        <option value="">Selecciona ciudad</option>
+        <option value="ipiales">Ipiales</option>
+        <option value="bogota">Bogotá</option>
+        <option value="medellin">Medellín</option>
+        <option value="cali">Cali</option>
+        <option value="barranquilla">Barranquilla</option>
+      </select>
+      <small
+        *ngIf="isTouched('ciudad') && !ubicacion.ciudad"
+        class="error"
+      >
+        Debe seleccionar un item de la lista.
+      </small>
+    </div>
+
+    <div class="form-group field-large">
+      <label>Dirección de Residencia <span class="required">*</span></label>
+      <input
+        type="text"
+        [(ngModel)]="ubicacion.direccion"
+        placeholder="Calle, carrera, número, etc."
+        (blur)="markAsTouched('direccion')"
+        (ngModelChange)="onInputChange()"
+        [class.error]="isTouched('direccion') && !ubicacion.direccion"
+      />
+      <small
+        *ngIf="isTouched('direccion') && !ubicacion.direccion"
+        class="error"
+      >
+        Este campo es obligatorio
+      </small>
+    </div>
+
+    <!-- FILA 2: Teléfono fijo + Celular + Correo -->
+    <div class="form-group field-small">
+      <label>Teléfono Fijo</label>
+      <input
+        type="tel"
+        [(ngModel)]="ubicacion.telefonoFijo"
+        placeholder="Ej: 6040560"
+        (ngModelChange)="onInputChange()"
+      />
+    </div>
+
+    <div class="form-group field-small">
+      <label>Celular <span class="required">*</span></label>
+      <input
+        type="tel"
+        [(ngModel)]="ubicacion.celular"
+        placeholder="Ej: 3443574319"
+        (blur)="markAsTouched('celular')"
+        (ngModelChange)="onInputChange()"
+        [class.error]="isTouched('celular') && !ubicacion.celular"
+      />
+      <small
+        *ngIf="isTouched('celular') && !ubicacion.celular"
+        class="error"
+      >
+        Este campo es obligatorio
+      </small>
+    </div>
+
+    <div class="form-group field-large">
+      <label>Correo <span class="required">*</span></label>
+      <input
+        type="email"
+        [(ngModel)]="ubicacion.correo"
+        placeholder="Ejemplo@correo.com"
+        (blur)="markAsTouched('correo')"
+        (ngModelChange)="onInputChange()"
+        [class.error]="isTouched('correo') && !ubicacion.correo"
+      />
+      <small
+        *ngIf="isTouched('correo') && !ubicacion.correo"
+        class="error"
+      >
+        Este campo es obligatorio
+      </small>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,203 @@
+<header class="header">
+  <div class="header-left">
+    <div class="logo" (click)="onLogoClick()">
+      <span class="material-icons">home</span>
+    </div>
+
+    <nav class="nav">
+      <div class="nav-item">
+        <a href="#" (click)="$event.preventDefault()">
+          Registrar comparendo
+          <span class="chevron material-icons">expand_more</span>
+        </a>
+        <div class="dropdown">
+          <a
+            href="#"
+            class="dropdown-item"
+            (click)="$event.preventDefault(); onMenuItemClick('nuevo-comparendo')"
+          >
+            Nuevo comparendo
+          </a>
+          <a
+            href="#"
+            class="dropdown-item"
+            (click)="$event.preventDefault(); onMenuItemClick('importar-comparendos')"
+          >
+            Importar comparendos
+          </a>
+          <a
+            href="#"
+            class="dropdown-item"
+            (click)="$event.preventDefault(); onMenuItemClick('historico')"
+          >
+            Histórico
+          </a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a href="#" (click)="$event.preventDefault()">
+          Cobro persuasivo
+          <span class="chevron material-icons">expand_more</span>
+        </a>
+        <div class="dropdown">
+          <a
+            href="#"
+            class="dropdown-item"
+            (click)="$event.preventDefault(); onMenuItemClick('crear-orden')"
+          >
+            Crear orden
+          </a>
+          <a
+            href="#"
+            class="dropdown-item"
+            (click)="$event.preventDefault(); onMenuItemClick('consultar-ordenes')"
+          >
+            Consultar órdenes
+          </a>
+          <a
+            href="#"
+            class="dropdown-item"
+            (click)="$event.preventDefault(); onMenuItemClick('reportes')"
+          >
+            Reportes
+          </a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a href="#" (click)="$event.preventDefault()">
+          Estado comparendos
+          <span class="chevron material-icons">expand_more</span>
+        </a>
+        <div class="dropdown">
+          <a
+            href="#"
+            class="dropdown-item"
+            (click)="$event.preventDefault(); onMenuItemClick('consultar-estado')"
+          >
+            Consultar estado
+          </a>
+          <a
+            href="#"
+            class="dropdown-item"
+            (click)="$event.preventDefault(); onMenuItemClick('actualizar-estado')"
+          >
+            Actualizar estado
+          </a>
+          <a
+            href="#"
+            class="dropdown-item"
+            (click)="$event.preventDefault(); onMenuItemClick('estadisticas')"
+          >
+            Estadísticas
+          </a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a href="#" (click)="$event.preventDefault()">
+          Notificaciones
+          <span class="chevron material-icons">expand_more</span>
+        </a>
+        <div class="dropdown">
+          <a
+            href="#"
+            class="dropdown-item"
+            (click)="$event.preventDefault(); onMenuItemClick('ver-todas')"
+          >
+            Ver todas
+          </a>
+          <a
+            href="#"
+            class="dropdown-item"
+            (click)="$event.preventDefault(); onMenuItemClick('marcar-leidas')"
+          >
+            Marcar como leídas
+          </a>
+          <a
+            href="#"
+            class="dropdown-item"
+            (click)="$event.preventDefault(); onMenuItemClick('config-notif')"
+          >
+            Configuración
+          </a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a href="#" (click)="$event.preventDefault()">
+          Audiencias
+          <span class="chevron material-icons">expand_more</span>
+        </a>
+        <div class="dropdown">
+          <a
+            href="#"
+            class="dropdown-item"
+            (click)="$event.preventDefault(); onMenuItemClick('programar-audiencia')"
+          >
+            Programar audiencia
+          </a>
+          <a
+            href="#"
+            class="dropdown-item"
+            (click)="$event.preventDefault(); onMenuItemClick('calendario')"
+          >
+            Calendario
+          </a>
+          <a
+            href="#"
+            class="dropdown-item"
+            (click)="$event.preventDefault(); onMenuItemClick('actas')"
+          >
+            Actas
+          </a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a href="#" (click)="$event.preventDefault()">
+          Administración
+          <span class="chevron material-icons">expand_more</span>
+        </a>
+        <div class="dropdown">
+          <a
+            href="#"
+            class="dropdown-item"
+            (click)="$event.preventDefault(); onMenuItemClick('usuarios')"
+          >
+            Usuarios
+          </a>
+          <a
+            href="#"
+            class="dropdown-item"
+            (click)="$event.preventDefault(); onMenuItemClick('permisos')"
+          >
+            Permisos
+          </a>
+          <a
+            href="#"
+            class="dropdown-item"
+            (click)="$event.preventDefault(); onMenuItemClick('configuracion')"
+          >
+            Configuración
+          </a>
+          <a
+            href="#"
+            class="dropdown-item"
+            (click)="$event.preventDefault(); onMenuItemClick('logs')"
+          >
+            Logs del sistema
+          </a>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <div class="header-right">
+    <span class="icons">
+      <img src="lopequeno.png" alt="Logo pequeño" class="header-logo" />
+      <img src="LogoSecretaria.PNG" alt="Logo Secretaría" class="header-logo" />
+    </span>
+  </div>
+</header>

@@ -6,7 +6,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Spartan UI CSS Variables */
 :root {
   color-scheme: light;
 
